@@ -1,6 +1,11 @@
 export default function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
+    const fd = new FormData(event.target); //for this to work, "name" prop needs to be set on the controls
+    const acquisitionChannel = fd.getAll("acquisition");
+    const data = Object.fromEntries(fd.entries());
+    data.acquisition = acquisitionChannel;
+    console.log(data);
   }
 
   return (
